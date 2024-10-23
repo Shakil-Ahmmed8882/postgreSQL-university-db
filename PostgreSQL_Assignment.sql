@@ -108,14 +108,20 @@ SELECT s.student_name FROM enrollment as e
 
 
 --Query 3:
---Update the status of the student with the highest total (frontend_mark + backend_mark) to 'Awarded'.
+--Update the status of the student with the highest total 
+(frontend_mark + backend_mark) to 'Awarded'.
 UPDATE students 
     set status = 'Awarded'
     WHERE (frontend_mark + backend_mark)  = (
         SELECT max(frontend_mark + backend_mark) FROM students
     );
 
-    -- her i tried to use subquery to place highest number by summing frontend and backdnd mark of a student and the first where clause to match that from all students. Finally found student is set = awared 
+/*
+    Here, I used a subquery to find the highest total by summing 
+    the `frontend_mark` and `backend_mark` of a student. The 
+    `WHERE` clause then matches that total from all students, and 
+    the student with the highest score is set to "Awarded".
+*/
 
 
 
