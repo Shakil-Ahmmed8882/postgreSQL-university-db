@@ -108,20 +108,21 @@ SELECT s.student_name FROM enrollment as e
 
 
 --Query 3:
---Update the status of the student with the highest total 
-(frontend_mark + backend_mark) to 'Awarded'.
+--Update the status of the student with the highest total (frontend_mark + backend_mark) to 'Awarded'.
 UPDATE students 
     set status = 'Awarded'
     WHERE (frontend_mark + backend_mark)  = (
         SELECT max(frontend_mark + backend_mark) FROM students
     );
 
+
 /*
-    Here, I used a subquery to find the highest total by summing 
-    the `frontend_mark` and `backend_mark` of a student. The 
-    `WHERE` clause then matches that total from all students, and 
-    the student with the highest score is set to "Awarded".
-*/
+    1. I first combined the `courses` and `enrollment` tables using a JOIN to create a unified dataset containing information from both tables.
+    2. From this combined dataset, I grouped the records by `course_name` to ensure each course is treated as a distinct group.
+    3. Finally, I displayed the respective `course_name` along with the number of students enrolled in each course by counting the grouped records.
+    
+  */
+
 
 
 
@@ -160,11 +161,10 @@ SELECT student_name FROM students LIMIT 2 OFFSET 2;
 SELECT course_name, count(*) as students_enrolled FROM (SELECT * FROM enrollment 
     JOIN courses on enrollment.course_id = courses.course_id) GROUP BY course_name;
 
-  /*
-    1. I first combined the `courses` and `enrollment` tables using a JOIN to create a unified dataset containing information from both tables.
-    2. From this combined dataset, I grouped the records by `course_name` to ensure each course is treated as a distinct group.
-    3. Finally, I displayed the respective `course_name` along with the number of students enrolled in each course by counting the grouped records.
-  */
+    -- here I first combine courses and enrollment table 
+    -- found one single table combining both. 
+    -- from this table i group them by course_name for distict courses as group. 
+    -- then I display the respective course_name and number of enrollments found in that. 
 
 
 
