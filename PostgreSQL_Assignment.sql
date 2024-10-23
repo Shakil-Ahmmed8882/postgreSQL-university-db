@@ -120,6 +120,18 @@ UPDATE students
 
 
 
+--Query 4:
+--Delete all courses that have no students enrolled.
+DELETE FROM courses 
+    WHERE course_id not in(
+        SELECT course_id from enrollment
+    );
+
+-- here i compare the course_id from the courses table 
+-- and checking which course_id is not referenced in enrollment table
+-- finally found courses are deleted. 
+
+
 
 
 
@@ -131,6 +143,3 @@ UPDATE students
 SELECT * FROM students;
 SELECT * FROM courses;
 SELECT * FROM enrollment;
-
-
-
