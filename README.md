@@ -24,7 +24,7 @@ This repository contains SQL solutions and explanations for various PostgreSQL c
 
 ## Visuals 
 
-![Database Screenshot](https://raw.githubusercontent.com/Shakil-Ahmmed8882/postgreSQL-university-db/refs/heads/main/assets/Screenshot%20(34).png)
+![Database Screenshot](https://raw.githubusercontent.com/Shakil-Ahmmed8882/postgreSQL-university-db/refs/heads/main/assets/SQLCodeSnippet.png)
 
 
 
