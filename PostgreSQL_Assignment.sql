@@ -89,27 +89,33 @@ VALUES
 
 --Query 1:
 --Insert a new student record with the following details:
-
 INSERT INTO students (student_name, age, email, frontend_mark, backend_mark, status)
     VALUES ('Shakil Ahmmed', 22, 'shakil.ahmmed@example.com', 80, 85, NULL);
 
 
 
 
-
 --Query 2:
 --Retrieve the names of all students who are enrolled in the course titled 'Next.js'.
-
 SELECT s.student_name FROM enrollment as e
     JOIN students as s on e.student_id = s.student_id
     JOIN courses as c on e.course_id = c.course_id
     WHERE c.course_name  LIKE 'Next.js';
 
     -- here i use lik for case-insensitive matching 
-    -- and alias name alias for ease
+    -- and name alias for ease
 
 
 
+--Query 3:
+--Update the status of the student with the highest total (frontend_mark + backend_mark) to 'Awarded'.
+UPDATE students 
+    set status = 'Awarded'
+    WHERE (frontend_mark + backend_mark)  = (
+        SELECT max(frontend_mark + backend_mark) FROM students
+    );
+
+    -- her i tried to use subquery to place highest number by summing frontend and backdnd mark of a student and the first where clause to match that from all students. Finally found student is set = awared 
 
 
 
@@ -125,10 +131,6 @@ SELECT s.student_name FROM enrollment as e
 SELECT * FROM students;
 SELECT * FROM courses;
 SELECT * FROM enrollment;
-
-
-
-
 
 
 
