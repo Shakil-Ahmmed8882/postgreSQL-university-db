@@ -176,8 +176,7 @@ SELECT student_name from students
 
     --here i I use this % pattern matching wildcard character 
     -- to find students whose email contain 'example.com'
-    
-    
+
 
 
 
