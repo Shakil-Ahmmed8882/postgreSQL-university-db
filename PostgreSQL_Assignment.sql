@@ -147,6 +147,20 @@ SELECT student_name FROM students LIMIT 2 OFFSET 2;
 
 
 
+
+
+--Query 6:
+--Retrieve the course names and the number of students enrolled in each course.
+SELECT course_name, count(*) FROM (SELECT * FROM enrollment 
+    JOIN courses on enrollment.course_id = courses.course_id) GROUP BY course_name
+
+    -- here I first combine courses and enrollment table 
+    -- found one single table combining both. 
+    -- from this table i group them by course_name for distict courses as group. 
+    -- then I display the respective course_name and number of enrollments found in that. 
+
+
+
  
 ------------------------ READ TABLE DATA ----------------------
 
