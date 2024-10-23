@@ -166,7 +166,24 @@ SELECT course_name, count(*) as students_enrolled FROM (SELECT * FROM enrollment
 SELECT avg(age) as average_age
 FROM students;
 
- 
+
+
+
+--Query 8:
+--Retrieve the names of students whose email addresses contain 'example.com'.
+SELECT student_name from students
+    where email like '%example.com%' ;
+
+    --here i I use this % pattern matching wildcard character 
+    -- to find students whose email contain 'example.com'
+    
+    
+
+
+
+
+
+
 ------------------------ READ TABLE DATA ----------------------
 
 SELECT * FROM students;
