@@ -151,8 +151,8 @@ SELECT student_name FROM students LIMIT 2 OFFSET 2;
 
 --Query 6:
 --Retrieve the course names and the number of students enrolled in each course.
-SELECT course_name, count(*) FROM (SELECT * FROM enrollment 
-    JOIN courses on enrollment.course_id = courses.course_id) GROUP BY course_name
+SELECT course_name, count(*) as students_enrolled FROM (SELECT * FROM enrollment 
+    JOIN courses on enrollment.course_id = courses.course_id) GROUP BY course_name;
 
     -- here I first combine courses and enrollment table 
     -- found one single table combining both. 
@@ -160,6 +160,11 @@ SELECT course_name, count(*) FROM (SELECT * FROM enrollment
     -- then I display the respective course_name and number of enrollments found in that. 
 
 
+
+--Query 7:
+--Calculate and display the average age of all students
+SELECT avg(age) as average_age
+FROM students;
 
  
 ------------------------ READ TABLE DATA ----------------------
