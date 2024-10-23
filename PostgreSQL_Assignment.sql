@@ -85,8 +85,50 @@ VALUES
 
 
 
+------------------------ DATABASE QUERY ----------------------
+
+--Query 1:
+--Insert a new student record with the following details:
+
+INSERT INTO students (student_name, age, email, frontend_mark, backend_mark, status)
+    VALUES ('Shakil Ahmmed', 22, 'shakil.ahmmed@example.com', 80, 85, NULL);
+
+
+
+
+
+--Query 2:
+--Retrieve the names of all students who are enrolled in the course titled 'Next.js'.
+
+SELECT s.student_name FROM enrollment as e
+    JOIN students as s on e.student_id = s.student_id
+    JOIN courses as c on e.course_id = c.course_id
+    WHERE c.course_name  LIKE 'Next.js';
+
+    -- here i use lik for case-insensitive matching 
+    -- and alias name alias for ease
+
+
+
+
+
+
+
+
+
+
+
+
+
 ------------------------ READ TABLE DATA ----------------------
 
 SELECT * FROM students;
 SELECT * FROM courses;
 SELECT * FROM enrollment;
+
+
+
+
+
+
+
