@@ -134,10 +134,20 @@ DELETE FROM courses
 
 
 
+--Query 5:
+--Retrieve the names of students using a limit of 2, starting from the 3rd stud
+SELECT student_name FROM students LIMIT 2 OFFSET 2;
+
+    -- here I understand this as the concept the pagination
+    -- I analyse it like -> well in each page 2 student name visible 
+    -- when navigate second page 3 and 4 number student are visible 
+    -- skipping first 1 and 2 
+    -- I use limit 2 for each page
+    -- and I use offset ot skip first 2 students
 
 
 
-
+ 
 ------------------------ READ TABLE DATA ----------------------
 
 SELECT * FROM students;
